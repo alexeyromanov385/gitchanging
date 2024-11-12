@@ -8,7 +8,7 @@ def display_menu():
     print("4. Удалить автомобиль")
     print("5. Поиск автомобиля")
     print("6. Выход из приложения")
-    print("ooo BSL CORPoration123567")
+    print("ooo BSL CORPoration1235678")
 def main():
     file_name = 'cars.txt'
     
