@@ -8,7 +8,6 @@ def display_menu():
     print("4. Удалить автомобиль")
     print("5. Поиск автомобиля")
     print("6. Выход из приложения")
-    print("alalalalalallal")
 def main():
     file_name = 'cars.txt'
     
@@ -60,8 +59,13 @@ def add_car(file_name):
         print("Поле не должно быть пустым")
         return
 
+    package = input("Введите комплектацию: ")
+    if len(package) == 0:
+        print("Поле не должно быть пустым")
+        return
+
     with open(file_name, 'a') as file:
-        file.write(f"{brand},{factory},{color},{kpp},{engine}\n")
+        file.write(f"{brand},{factory},{color},{kpp},{engine},{package}\n")
 
     print("Автомобиль добавлен.")
 
@@ -75,7 +79,7 @@ def view_cars(file_name):
         else:
             print("\nСписок автомобилей:")
             table_data = [[index + 1] + car.strip().split(',') for index, car in enumerate(cars)]
-            print(tabulate(table_data, headers=["№", "Марка", "Завод", "Цвет", "Тип КПП", "Двигатель"], tablefmt="grid"))
+            print(tabulate(table_data, headers=["№", "Марка", "Завод", "Цвет", "Тип КПП", "Двигатель", "Комплектация"], tablefmt="grid"))
 
     except FileNotFoundError:
         print("Файл не найден.")
@@ -113,6 +117,11 @@ def modify_car(file_name):
 
         engine = input("Введите тип двигателя: ")
         if len(engine) == 0:
+            print("Поле не должно быть пустым")
+            return
+
+        package = input("Введите комплектацию: ")
+        if len(package) == 0:
             print("Поле не должно быть пустым")
             return
 
@@ -165,7 +174,7 @@ def search_car(file_name):
         
         if found:
             print("\nНайденные автомобили:")
-            print(tabulate(table_data, headers=["№", "Марка", "Завод", "Цвет", "Тип КПП", "Двигатель"], tablefmt="grid"))
+            print(tabulate(table_data, headers=["№", "Марка", "Завод", "Цвет", "Тип КПП", "Двигатель", "Комплектация"], tablefmt="grid"))
         else:
             print("Автомобили не найдены.")
 
