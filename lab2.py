@@ -4,11 +4,11 @@ def display_menu():
     print("\nМеню:")
     print("1. Добавить автомобиль")
     print("2. Посмотреть все автомобили")
-    print("3. Изменить информацию об автомобиле")
     print("4. Удалить автомобиль")
     print("5. Поиск автомобиля")
     print("6. Выход")
     print("ooo BSL CORP")
+    print("ahahaahah")
 
 def main():
     file_name = 'cars.txt'
